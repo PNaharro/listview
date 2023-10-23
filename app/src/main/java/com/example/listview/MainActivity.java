@@ -16,10 +16,12 @@ public class MainActivity extends AppCompatActivity {
     class Record {
         public int intents;
         public String nom;
+        public int imagenResource;
 
-        public Record(int _intents, String _nom, int imagene) {
+        public Record(int _intents, String _nom, int _imagenResource) {
             intents = _intents;
             nom = _nom;
+            imagenResource = _imagenResource;
         }
     }
 
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ((TextView) convertView.findViewById(R.id.nom)).setText(getItem(pos).nom);
                 ((TextView) convertView.findViewById(R.id.intents)).setText(Integer.toString(getItem(pos).intents));
+                ((ImageView) convertView.findViewById(R.id.imagen)).setImageResource(getItem(pos).imagenResource);
                 return convertView;
             }
         };
@@ -84,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                 int imagenAleatoria = new Random().nextInt(3);
 
-                int[] imagenes = {R.drawable.img, R.drawable.img, R.drawable.img};
+                int[] imagenes = {R.drawable.img, R.drawable.img2, R.drawable.img3};
 
                 records.add(new Record(numIntentos, nombreCompleto, imagenes[imagenAleatoria]));
                 adapter.notifyDataSetChanged();
